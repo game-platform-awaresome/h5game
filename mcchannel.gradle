@@ -1,0 +1,36 @@
+//用来存放应用中的所有配置变量，统一管理，而不再是每个moudle里都自己写一份，修改起来更加的方便
+
+ext{
+    android =[compileSdkVersion : 27,
+              buildToolsVersion : '27.0.1',
+              applicationId     : 'com.mc.game',
+              minSdkVersion     : 21,
+              targetSdkVersion  : 27,
+              versionCode       :1,
+              versionName       :'1.0.0',
+              multiDexEnabled   : true
+              ]
+
+    java = ['javaVersion': JavaVersion.VERSION_1_8]
+
+    dependence =['libSupportV7'       : 'com.android.support:appcompat-v7:27.1.1',
+                 'libconstraint'      : 'com.android.support.constraint:constraint-layout:1.1.0',
+                 'libtestrunner'      :'com.android.support.test:runner:1.0.2',
+                 'libjunit'           :'junit:junit:4.12',
+                 'libtestespresso'    :'com.android.support.test.espresso:espresso-core:3.0.2',
+    ]
+
+    productFlavors =[ 'applicationId'      : 'com.mc.rxh5',
+                      'versionCode'        : 1,
+                      'versionName'        : '1.1',
+                      'resValue_string'    :'string',
+                      'resValue_name'      : 'app_name',
+                      'resValue_value'     :'mc热血1'
+
+    ]
+
+
+
+}
+
+
