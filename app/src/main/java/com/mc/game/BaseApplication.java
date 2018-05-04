@@ -1,10 +1,16 @@
 package com.mc.game;
 
+import com.proxy.Constants;
+import com.proxy.config.McProxy;
 import com.proxy.util.LogUtil;
 import com.tencent.smtt.sdk.QbSdk;
+
+import android.app.Activity;
 import android.app.Application;
 
 public class BaseApplication extends Application {
+
+	private Activity mActivity;
 
 	@Override
 	public void onCreate() {
@@ -28,6 +34,16 @@ public class BaseApplication extends Application {
 		};
 		//x5内核初始化接口
 		QbSdk.initX5Environment(getApplicationContext(),  cb);
+
+		//初始化配置
+		McProxy.init(this)
+				.withApiHost(Constants.OMD_URLS)
+				.withActivity(mActivity)
+				.withGameID("rxcqh5") //游戏分配的gameId
+				.withGamekey("uVkyGhiKWm7T2B43n5rEafHleXwPzjRU") //游戏分配的gamekey
+				.withGameName("rxcqh5") //游戏分配的gameName
+				.withGameOrientation(1) //游戏横竖屏：   0：横屏   1：竖屏
+				.configure();
 
 
 

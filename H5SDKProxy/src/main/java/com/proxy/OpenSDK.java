@@ -94,12 +94,12 @@ public class OpenSDK {
 	/**
 	 * proxy初始化
 	 * @param activity 游戏的主Activity
-	 * @param gameInfo	游戏信息
 	 */
-	public void init(final Activity activity , GameInfo gameInfo , InitListener initlistenr){
+	public void init(final Activity activity ,InitListener initlistenr){
 		
 		mActivity = activity ;
-		
+		GameInfo mgameinfo = new GameInfo();
+
 		sdkLogInit(mActivity);
 		
 		
@@ -114,9 +114,9 @@ public class OpenSDK {
 		LogUtil.setLogEnable(true);
 		knListener.setInitListener(initlistenr);
 		Data.getInstance().setGameActivity(activity);
-		LogUtil.e("setappkey :"+gameInfo.getAppKey());
+		LogUtil.e("setappkey :"+mgameinfo.getAppKey());
 		
-		Data.getInstance().setGameInfo(gameInfo);
+		Data.getInstance().setGameInfo(mgameinfo);
 		this.onCreate(activity);
 		
 		isInited = true ;

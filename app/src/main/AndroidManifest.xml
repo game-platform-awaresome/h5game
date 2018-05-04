@@ -41,14 +41,23 @@
     <application
         android:name="com.mc.game.H5Application"
         android:allowBackup="true"
-        android:icon="@mipmap/icon"
+        android:icon="${app_icon}"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <meta-data android:name="android.max_aspect"
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="${ENVIRONMENT}"
+            />
+
+
+
+        <meta-data
+            android:name="android.max_aspect"
             android:value="2.1"/>
+
 
         <activity
             android:name="com.mc.game.activity.SplashActivity"

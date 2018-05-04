@@ -328,16 +328,15 @@ public class SdkChannel extends SdkProxy {
 	public void pay( final Activity activity , final KnPayInfo knPayInfo) {
 		super.pay(activity,knPayInfo);
 
-		
 	//	final PayInfo payInfo = new PayInfo();
-		LoadingDialog.show(activity, "正在申请订单", false);
+		//LoadingDialog.show(activity, "正在申请订单", false);
 		LogUtil.log("订单申请");
 		HttpService.applyOrder(activity, knPayInfo, new BaseListener() {
 			
 			@Override
 			public void onSuccess(Object result) {
 				LogUtil.log("订单申请成功");
-				LoadingDialog.dismiss();
+				//LoadingDialog.dismiss();
 				JSONObject obj = null;
 				try {
 					JSONObject obj1 = new JSONObject(result.toString());
@@ -367,8 +366,7 @@ public class SdkChannel extends SdkProxy {
 			
 			@Override
 			public void onFail(Object result) {
-				LoadingDialog.dismiss();
-				
+				//LoadingDialog.dismiss();
 				LogUtil.log("订单申请失败");
 				mPayListener.onFail(new Result(ResultCode.APPLY_ORDER_FAIL, "申请订单失败"));
 			}

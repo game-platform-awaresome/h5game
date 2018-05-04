@@ -42,8 +42,29 @@ public class Constants {
 		  public static String GETHTMLURL = "http://oms.u7game.cn/api/get_h5_url.php"; //热血传奇获取打包测试url
 
 	  }
-	  
-	  public static final int LANDSCAPE = 0;							//横屏		
+
+
+	public static final String OMD_URLS = "http://oms.u7game.cn";
+	public static final class URLS{
+		public static String LOGIN ="/api/login_check.php";								//登陆url
+		public static String APPLY_ORDER ="/api/apply_order.php";							//请求订单url
+		public static String ENTER_GAME ="/api/open_platform/datacenter/sendlv.php";		//发送等级url
+		public static String PUSH_DATA ="/api/record_activate.php";						//游戏开始push数据地址
+		public static String ACTIVATION = "http://"+yqmUrl+"/api.php" ;  									//游戏邀请码数据请求地址
+		public static String SDKUPDATEURL = "http://"+versionUprl+"/api.php";								//版本强更
+		public static String wxPayURL = "http://oms.szkuniu.com/api/order_transfor.php";       //微信订单转换接口
+		public static String PAYDATAURL = "http://pay.u7game.cn/api/open_platform/channel/yunding/send_pay.php";
+		public static String ACTIVATIONS ="/api/cdk_active.php" ;  //请求激活设备
+		public static String ISACTIVATIONS = OMD_URLS+"/api/is_imei_active.php" ; //验证设备是否被激活
+		public static String GETHTMLURL = "/api/get_h5_url.php"; //热血传奇获取打包测试url
+
+	}
+
+
+
+
+
+	public static final int LANDSCAPE = 0;							//横屏
 	  public static final int PORTRAIT = 1;								//竖屏
 	  
 	  public static final String USER_ID = "userId";						//用户ID

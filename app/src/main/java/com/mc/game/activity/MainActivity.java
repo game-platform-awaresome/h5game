@@ -322,7 +322,7 @@ public class MainActivity extends Activity {
             m_proxy.doDebug(true);
             //中间件
 
-            m_proxy.init(MainActivity.this, m_gameInfo, new InitListener() {
+            m_proxy.init(MainActivity.this, new InitListener() {
 
                 @Override
                 public void onSuccess(Object msg) {

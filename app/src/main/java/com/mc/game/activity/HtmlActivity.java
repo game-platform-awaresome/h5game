@@ -63,12 +63,7 @@ public class HtmlActivity extends Activity {
 
 
 	OpenSDK m_proxy = OpenSDK.getInstance();
-	private String m_appKey = "uVkyGhiKWm7T2B43n5rEafHleXwPzjRU";
-	private String m_gameId = "rxcqh5";
-	private String m_gameName = "rxcqh5";
-	private int m_screenOrientation = 1;
-
-	private GameInfo m_gameInfo = new GameInfo(m_gameName, m_appKey, m_gameId, m_screenOrientation);
+	GameInfo m_gameInfo = new GameInfo();
 	public static String HtmlUrl;
 	private String roleDate;
 	private String roledata;
@@ -133,10 +128,11 @@ public class HtmlActivity extends Activity {
 		data.put("channel", m_gameInfo.getChannel());
 		data.put("time", date);
 
-		HttpService.doHtmlUrl(HtmlActivity.this, data, new BaseListener() {
+
+
+		HttpService.doHtmlUrl(new BaseListener() {
 			@Override
 			public void onSuccess(Object result) {
-
 				LogUtil.log("获取h5地址result=" + result.toString());
 
 				try {
@@ -161,7 +157,6 @@ public class HtmlActivity extends Activity {
 
 			@Override
 			public void onFail(Object result) {
-
 				LogUtil.log("网络请求失败："+result.toString());
 				runOnUiThread(new Runnable() { //UI线程显示
 					public void run() {
@@ -179,18 +174,8 @@ public class HtmlActivity extends Activity {
 						});
 					}
 				});
-
-
-
-
-
-
-
-
 			}
-
 		});
-
 
 	}
 
@@ -203,8 +188,6 @@ public class HtmlActivity extends Activity {
 		//设置webView监听回调
 		WebViewListener();
 		mweview.loadUrl(htmlUrl); //加载h5页面
-		//  String platform ="platform=android";
-		// mweview.postUrl(htmlUrl,EncodingUtils.getBytes(platform, "BASE64"));
 		mweview.setBackgroundColor(Color.BLACK);
 
 	}
@@ -344,7 +327,7 @@ public class HtmlActivity extends Activity {
 			m_proxy.doDebug(true);
 			//中间件
 
-			m_proxy.init(HtmlActivity.this, m_gameInfo, new InitListener() {
+			m_proxy.init(HtmlActivity.this, new InitListener() {
 
 				@Override
 				public void onSuccess(Object msg) {

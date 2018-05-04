@@ -5,6 +5,8 @@ import android.text.TextUtils;
 
 import com.proxy.Constants;
 import com.proxy.Data;
+import com.proxy.config.ConfigKeys;
+import com.proxy.config.McProxy;
 import com.proxy.util.LogUtil;
 import com.proxy.util.Util;
 
@@ -36,6 +38,16 @@ public class GameInfo {
 		this.gameId = gameId;
 		this.screenOrientation = screenOrientation;
 	}
+
+	public GameInfo() {
+		super();
+		this.gameName = McProxy.getConfiguration(ConfigKeys.GAME_NAME);
+		this.appKey =  McProxy.getConfiguration(ConfigKeys.GAME_KEY);
+		this.gameId = McProxy.getConfiguration(ConfigKeys.GAME_ID);
+		this.screenOrientation = McProxy.getConfiguration(ConfigKeys.GAME_ORIEN);
+	}
+
+
 
 	public String getAdChannel() {
 		LogUtil.e("ad_channel="+adChannel);
